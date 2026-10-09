@@ -1,0 +1,4 @@
+import { NavLink, Outlet, Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
+
+export default function AdminLayout() { const { logout } = useAuth(); return <div className="admin-shell"><aside className="admin-sidebar"><Link className="logo" to="/admin/dashboard"><span className="logo-mark">PP</span><span><strong>Studio desk</strong><small>Pins & Pleats</small></span></Link><nav><span className="sidebar-label">Workspace</span><NavLink to="/admin/dashboard">Overview</NavLink><NavLink to="/admin/bookings">Bookings</NavLink><NavLink to="/admin/services">Services</NavLink><NavLink to="/admin/users">Customers</NavLink><NavLink to="/admin/reviews">Reviews</NavLink></nav><button className="text-button" onClick={logout}>Sign out</button></aside><main className="admin-main"><Outlet /></main></div>; }
